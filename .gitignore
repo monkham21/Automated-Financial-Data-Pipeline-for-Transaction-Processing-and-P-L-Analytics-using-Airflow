@@ -1,0 +1,7 @@
+# Ignore environment variables
+.env
+
+# Also common to ignore these in Python/DAG projects
+__pycache__/
+*.pyc
+venv/
