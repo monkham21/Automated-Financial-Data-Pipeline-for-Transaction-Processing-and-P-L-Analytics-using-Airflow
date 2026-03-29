@@ -29,5 +29,5 @@ finance-data-pipeline/
 │
 ├── .env
 ├── requirements.txt
-├── docker-compose.yml   (optional but 🔥 for interviews)
+├── docker-compose.yml   
 └── README.md
