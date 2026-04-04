@@ -9,7 +9,7 @@ The pipeline demonstrates core data engineering concepts including orchestration
 
 ## 🏗️ Architecture
 
-<img src="exchange_rate_pipeline_1024x768.png" alt="Pipeline Diagram" width="800"/>
+<img src="exchange_rate_pipeline_1024x768.png" alt="Pipeline Diagram" width="500"/>
 
      
 ---
