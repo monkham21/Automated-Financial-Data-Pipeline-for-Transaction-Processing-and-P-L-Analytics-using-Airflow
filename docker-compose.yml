@@ -1,22 +1,21 @@
-version: '3'
-
 services:
   airflow:
     image: apache/airflow:2.9.1
     container_name: airflow
-    restart: always
+    restart: unless-stopped
     environment:
-      - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - _PIP_ADDITIONAL_REQUIREMENTS=requests
     volumes:
       - ./dags:/opt/airflow/dags
       - ./src:/opt/airflow/src
+      - ./data:/opt/airflow/data
     ports:
       - "8080:8080"
     command: >
       bash -c "
       airflow db init &&
-      airflow users create -u admin -p admin -f Mon -l User -r Admin -e admin@example.com &&
-      airflow webserver &
-      airflow scheduler
+      airflow users create -u admin -p admin -f Mon -l User -r Admin -e admin@example.com || true &&
+      airflow webserver & airflow scheduler
       "
