@@ -19,8 +19,7 @@ The pipeline demonstrates core data engineering concepts including orchestration
        [Load Raw Data (SQLite)]
                    |
                    v
-           [Transform Task]
-  (Compute strongest & weakest currency)
+ [Transform Task (Compute strongest & weakest currency)]
                    |
                    v
      [Load Metrics (SQLite Table)]
