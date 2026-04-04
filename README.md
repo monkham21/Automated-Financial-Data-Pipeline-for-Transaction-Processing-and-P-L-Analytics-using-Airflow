@@ -8,21 +8,8 @@ The pipeline demonstrates core data engineering concepts including orchestration
 ---
 
 ## 🏗️ Architecture
-        +----------------------+
-        |  Exchange Rate API   |
-        +----------+-----------+
-                   |
-                   v
-           [Extract Task]
-                   |
-                   v
-       [Load Raw Data (SQLite)]
-                   |
-                   v
- [Transform Task (Compute strongest & weakest currency)]
-                   |
-                   v
-     [Load Metrics (SQLite Table)]
+
+<img src="exchange_rate_pipeline_1024x768.png" alt="Pipeline Diagram" width="800"/>
 
      
 ---
