@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  airflow:
+    image: apache/airflow:2.9.1
+    container_name: airflow
+    restart: always
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./src:/opt/airflow/src
+    ports:
+      - "8080:8080"
+    command: >
+      bash -c "
+      airflow db init &&
+      airflow users create -u admin -p admin -f Mon -l User -r Admin -e admin@example.com &&
+      airflow webserver &
+      airflow scheduler
+      "

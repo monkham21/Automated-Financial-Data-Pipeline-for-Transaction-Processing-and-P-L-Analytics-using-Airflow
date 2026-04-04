@@ -1,3 +1,8 @@
+import sys
+import os
+
+sys.path.append("/opt/airflow")
+
 from datetime import datetime, timedelta
 
 from airflow import DAG
@@ -36,7 +41,7 @@ with DAG(
     def extract_task(**context):
         data = fetch_transactions()
         context["ti"].xcom_push(key="raw_data", value=data)
-        logger.info("Extracted data successfully")
+        logger.info(f"Extracted data: {data}")  # 👈 ADD THIS
 
     extract = PythonOperator(
         task_id="extract_data",
